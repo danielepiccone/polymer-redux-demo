@@ -3,7 +3,8 @@
   "main": "index.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
-    "polymer-redux": "^1.0.1"
+    "polymer-redux": "^1.0.1",
+    "redux": "https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.2/redux.js"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",
