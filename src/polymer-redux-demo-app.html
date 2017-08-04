@@ -1,0 +1,25 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="./my-counter.html">
+<link rel="import" href="./my-controls.html">
+
+<dom-module id="polymer-redux-demo-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+        font-size: 3rem;
+      }
+    </style>
+    <h2>Hello</h2>
+    <my-counter></my-counter>
+    <my-controls></my-controls>
+  </template>
+
+  <script>
+    class PolymerReduxDemoApp extends Polymer.Element {
+      static get is() { return 'polymer-redux-demo-app'; }
+    }
+
+    window.customElements.define(PolymerReduxDemoApp.is, PolymerReduxDemoApp);
+  </script>
+</dom-module>

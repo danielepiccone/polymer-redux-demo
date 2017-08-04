@@ -1,0 +1,74 @@
+<link rel="import" href="../bower_components/polymer/polymer.html" />
+<link rel="import" href="./redux-store.html">
+
+<dom-module id="my-controls">
+  <template>
+    <style>
+      button {
+        font-size: 2rem;
+        padding: 1rem;
+      }
+    </style>
+
+    <button on-click="handleClickIncrement">increment</button>
+    &nbsp;
+    <button on-click="handleClickDecrement">decrement</button>
+    &nbsp;
+    <button on-click="handleClickReset">reset</button>
+
+  </template>
+
+
+  <script>
+    class MyControls extends ReduxMixin(Polymer.Element) {
+      static get is() { return 'my-controls' }
+      static get properties() {
+        return {
+          count: {
+            type: Number,
+            statePath: 'count'
+          },
+        }
+      }
+      static get actions() {
+        return {
+          increment() {
+            return {
+              type: 'UPDATE',
+              payload: 1
+            }
+          },
+          decrement() {
+            return {
+              type: 'UPDATE',
+              payload: -1
+            }
+          },
+          reset() {
+            return {
+              type: 'RESET'
+            }
+          }
+        }
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+      }
+
+      handleClickIncrement() {
+        this.dispatch(MyControls.actions.increment())
+      }
+
+      handleClickDecrement() {
+        this.dispatch(MyControls.actions.decrement())
+      }
+
+      handleClickReset() {
+        this.dispatch(MyControls.actions.reset())
+      }
+    }
+
+    window.customElements.define(MyControls.is, MyControls);
+  </script>
+</dom-module>

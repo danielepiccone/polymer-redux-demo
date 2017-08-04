@@ -1,0 +1,24 @@
+<link rel="import" href="../bower_components/polymer/polymer.html" />
+<link rel="import" href="./redux-store.html">
+
+<dom-module id="my-counter">
+  <template>
+    <p>This is the count: <strong>[[count]]</strong></p>
+  </template>
+
+  <script>
+    class MyCounter extends ReduxMixin(Polymer.Element) {
+      static get is() { return 'my-counter' }
+      static get properties() {
+        return {
+          count: {
+            type: Number,
+            statePath: 'count'
+          },
+        }
+      }
+    }
+
+    window.customElements.define(MyCounter.is, MyCounter);
+  </script>
+</dom-module>
